@@ -4,7 +4,7 @@ import os, sys
 
 
 # to specify folder path (set working directory)
-os.chdir('/home/k/Dropbox/NYC/2018-2019/ΕΑΡΙΝΟ/AI (NYC)/image analysis py/Filesfacedetection/')
+os.chdir('C:/Users/tzoul/Desktop/Code/AI/')
 
 # to get working directory use the line bellow (folder must be opened in editor)
 #os.getcwd()
@@ -14,20 +14,20 @@ os.chdir('/home/k/Dropbox/NYC/2018-2019/ΕΑΡΙΝΟ/AI (NYC)/image analysis py/
 
 
 #face_cascade = cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.xml')
-face_cascade = cv2.CascadeClassifier('cascades/lbpcascade_frontalface_improved.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
 
-smile_cascade = cv2.CascadeClassifier('cascades/haarcascade_smile.xml')
+smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
 
 
-img = cv2.imread('manypeoplesmile.jpg')
+img = cv2.imread('images/face.jpg')
 
 #comment the line bellow to and run again to see the image recognition
 #cv2.imshow('photo1',img)
 
 #convert to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-cv2.imshow('photo2',gray)
+cv2.imshow('face2',gray)
 
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 for (x,y,w,h) in faces:
@@ -39,15 +39,15 @@ for (x,y,w,h) in faces:
         cv2.rectangle(roi_color,(sx,sy),(sx+sw,sy+sh),(0,255,0),2)
 
 #uncomment to see the classification
-cv2.imshow('photo3',img)
+# cv2.imshow('photo3',img)
 
 # To show both images in one frame
 # comment lines  14, 18 , 28
 # Make the grey scale image have three channels
-#gray_3_channel = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
-#matrixHorizontal=np.hstack((img, gray_3_channel))
-#matrixHorizontal_concat= np.concatenate((img, gray_3_channel), axis=1)
-#cv2.imshow('Numpy Horizontal Concat', matrixHorizontal_concat)
+gray_3_channel = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
+matrixHorizontal=np.hstack((img, gray_3_channel))
+matrixHorizontal_concat= np.concatenate((img, gray_3_channel), axis=1)
+cv2.imshow('Numpy Horizontal Concat', matrixHorizontal_concat)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

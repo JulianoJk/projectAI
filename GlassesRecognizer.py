@@ -1,13 +1,13 @@
 import numpy as np
 import cv2
 
-face_cascade = cv2.CascadeClassifier('xmlFiles/haarcascade_frontalface_default.xml')
+face_with_glasses = cv2.CascadeClassifier('xmlFiles/haarcascade_eye_tree_eyeglasses.xml')
 # image src
-image = cv2.imread('images/face.jpg')
+image = cv2.imread('images/maleSmileGlass.jpg')
 # Gray out image
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-face = face_cascade.detectMultiScale(gray, 1.5, 5)
+face = face_with_glasses.detectMultiScale(gray, 1.2, 5)
 
 
 for (x, y, w, h) in face:

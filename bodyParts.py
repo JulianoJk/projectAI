@@ -6,7 +6,7 @@ upperBody_cascade = cv2.CascadeClassifier('xmlFiles/haarcascade_upperbody.xml')
 fullBody_cascade = cv2.CascadeClassifier('xmlFiles/haarcascade_fullbody.xml')
 
 # image src
-img = cv2.imread('images/maleSmileGlass.jpg')
+img = cv2.imread('images/fullBody1.jpg')
 # Gray out image
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
